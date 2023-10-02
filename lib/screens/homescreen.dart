@@ -22,12 +22,11 @@ class HomeScreen extends StatelessWidget {
                     'Currency Converter',
                     style: kHomePageTextStyle,
                   ),
-                  SizedBox(
-                    height: kSizedBoxH10,
-                  ),
+                  kHomeScreenSizedBox,
                   const Image(
                     image: AssetImage('images/financialStock.png'),
                   ),
+                  kHomeScreenSizedBox,
                   TextButton(
                     child: const Text(
                       'Enter',

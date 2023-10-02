@@ -13,3 +13,6 @@ const kHomePageSmallTextStyle = TextStyle(
     fontFamily: 'OpenSans',
     fontSize: 20.0,
     fontWeight: FontWeight.bold);
+const kHomeScreenSizedBox = SizedBox(
+  height: kSizedBoxH10,
+);
