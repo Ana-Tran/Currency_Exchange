@@ -1,3 +1,4 @@
+import 'package:currency_exchange/constants.dart';
 import 'package:flutter/material.dart';
 import 'mainscreen.dart';
 
@@ -17,9 +18,21 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Text('Currency Converter'),
+                  const Text(
+                    'Currency Converter',
+                    style: kHomePageTextStyle,
+                  ),
+                  SizedBox(
+                    height: kSizedBoxH10,
+                  ),
+                  const Image(
+                    image: AssetImage('images/financialStock.png'),
+                  ),
                   TextButton(
-                    child: const Text('Enter'),
+                    child: const Text(
+                      'Enter',
+                      style: kHomePageSmallTextStyle,
+                    ),
                     onPressed: () {
                       Navigator.pushNamed(context, MainScreen.id);
                     },
