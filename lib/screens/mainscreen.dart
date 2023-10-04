@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:currency_exchange/currency_data.dart';
 import 'package:currency_exchange/custom_widgets/custom_container.dart';
+import 'package:currency_exchange/constants.dart';
+import 'package:currency_exchange/custom_widgets/custom_card.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -16,7 +18,7 @@ class _MainScreenState extends State<MainScreen> {
   DropdownButton createDropDown() {
     List<DropdownMenuItem<String>> menuItems = [];
     for (String currency in currencyList) {
-      var newItems = DropdownMenuItem(child: Text(currency), value: currency);
+      var newItems = DropdownMenuItem(value: currency, child: Text(currency));
       menuItems.add(newItems);
     }
     return DropdownButton<String>(
@@ -29,6 +31,19 @@ class _MainScreenState extends State<MainScreen> {
         });
   }
 
+  List<CustomCard> createCards() {
+    List<CustomCard> newCards = [];
+    for (String cardList in currencyCardList) {
+      newCards.add(
+        CustomCard(
+            value: '1.5',
+            selectedCurrency: selectedCurrency,
+            currencyText: cardList),
+      );
+    }
+    return newCards;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,10 +52,24 @@ class _MainScreenState extends State<MainScreen> {
         title: const Text('Convert'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           buildContainer(createDropDown()),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 8.0, top: 10.0),
+                  child: Text(
+                    'Today\'s Rates',
+                    style: kMainScreenTxtStyle,
+                  ),
+                ),
+                ...createCards(),
+              ],
+            ),
+          ),
         ],
       ),
     );

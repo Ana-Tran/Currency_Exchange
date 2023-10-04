@@ -9,7 +9,7 @@ Container buildContainer(DropdownButton dropdownWidget) {
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text('Select curreny you wish to convert'),
+        const Text('Select the currency you wish to convert'),
         dropdownWidget,
       ],
     ),

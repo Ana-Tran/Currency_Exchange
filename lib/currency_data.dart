@@ -9,3 +9,5 @@ const List<String> currencyList = [
   'CHF',
   'SGD'
 ];
+
+const List<String> currencyCardList = ['USD', 'CAD', 'AUD', 'GBP'];

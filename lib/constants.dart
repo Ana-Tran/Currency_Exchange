@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 const kMainPageColor = Color.fromARGB(255, 158, 179, 170);
-const kMainTitleColor = Color.fromARGB(255, 218, 160, 178);
 const kSizedBoxH10 = 10.0;
 const kHomePageTextStyle = TextStyle(
     color: Colors.black,
@@ -16,3 +15,9 @@ const kHomePageSmallTextStyle = TextStyle(
 const kHomeScreenSizedBox = SizedBox(
   height: kSizedBoxH10,
 );
+
+const kMainScreenTxtStyle =
+    TextStyle(color: Colors.black, fontWeight: FontWeight.bold);
+
+const kMainCardTxtStyle =
+    TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold);
