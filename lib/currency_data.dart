@@ -10,4 +10,4 @@ const List<String> currencyList = [
   'SGD'
 ];
 
-const List<String> currencyCardList = ['USD', 'CAD', 'AUD', 'GBP'];
+const List<String> currencyCardList = ['USD', 'CAD', 'AUD'];

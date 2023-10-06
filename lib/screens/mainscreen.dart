@@ -3,6 +3,7 @@ import 'package:currency_exchange/currency_data.dart';
 import 'package:currency_exchange/custom_widgets/custom_container.dart';
 import 'package:currency_exchange/constants.dart';
 import 'package:currency_exchange/custom_widgets/custom_card.dart';
+import 'package:currency_exchange/countryImage.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -33,12 +34,13 @@ class _MainScreenState extends State<MainScreen> {
 
   List<CustomCard> createCards() {
     List<CustomCard> newCards = [];
-    for (String cardList in currencyCardList) {
+    for (int i = 0; i < currencyCardList.length; i++) {
       newCards.add(
         CustomCard(
+            countryImage: getCountryImages[i],
             value: '1.5',
             selectedCurrency: selectedCurrency,
-            currencyText: cardList),
+            currencyText: currencyCardList[i]),
       );
     }
     return newCards;
