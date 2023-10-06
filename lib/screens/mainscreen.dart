@@ -4,6 +4,7 @@ import 'package:currency_exchange/custom_widgets/custom_container.dart';
 import 'package:currency_exchange/constants.dart';
 import 'package:currency_exchange/custom_widgets/custom_card.dart';
 import 'package:currency_exchange/countryImage.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -44,6 +45,13 @@ class _MainScreenState extends State<MainScreen> {
       );
     }
     return newCards;
+  }
+
+  @override
+  void initState() async {
+    // TODO: implement initState
+    super.initState();
+    await dotenv.load(fileName: ".env");
   }
 
   @override

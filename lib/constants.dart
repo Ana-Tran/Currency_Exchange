@@ -21,3 +21,4 @@ const kMainScreenTxtStyle =
 
 const kMainCardTxtStyle =
     TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold);
+const kAmdorenURL = 'https://www.amdoren.com/api/currency.php';
