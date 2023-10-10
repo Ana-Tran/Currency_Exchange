@@ -32,7 +32,6 @@ class CustomCard extends StatelessWidget {
             children: [
               CircleAvatar(
                 foregroundImage: AssetImage(countryImage),
-                //child: Image(image: AssetImage(countryImage)),
               ),
               Text(
                 '1 $currencyText = $value $selectedCurrency',

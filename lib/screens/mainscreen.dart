@@ -5,6 +5,7 @@ import 'package:currency_exchange/constants.dart';
 import 'package:currency_exchange/custom_widgets/custom_card.dart';
 import 'package:currency_exchange/countryImage.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:currency_exchange/currency_data.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -16,7 +17,8 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   String selectedCurrency = 'USD';
-
+  Map<String, String> currencyValues = {};
+  bool isWaiting = false;
   DropdownButton createDropDown() {
     List<DropdownMenuItem<String>> menuItems = [];
     for (String currency in currencyList) {
@@ -29,29 +31,46 @@ class _MainScreenState extends State<MainScreen> {
         onChanged: (value) {
           setState(() {
             selectedCurrency = value!;
+            getData();
           });
         });
   }
 
   List<CustomCard> createCards() {
     List<CustomCard> newCards = [];
-    for (int i = 0; i < currencyCardList.length; i++) {
+    int counter = 0;
+    for (String currency in currencyCardList) {
       newCards.add(
         CustomCard(
-            countryImage: getCountryImages[i],
-            value: '1.5',
+            countryImage: getCountryImages[counter],
+            value: isWaiting ? '?' : currencyValues[currency].toString(),
             selectedCurrency: selectedCurrency,
-            currencyText: currencyCardList[i]),
+            currencyText: currency),
       );
+      counter++;
     }
     return newCards;
   }
 
+  void getData() async {
+    isWaiting = true;
+    try {
+      var data = await CurrencyData().getCurrencyData(selectedCurrency);
+      isWaiting = false;
+      setState(() {
+        currencyValues = data;
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
-  void initState() async {
+  void initState() {
     // TODO: implement initState
     super.initState();
-    await dotenv.load(fileName: ".env");
+    dotenv.load(fileName: ".env");
+    isWaiting = true;
   }
 
   @override

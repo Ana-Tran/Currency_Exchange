@@ -21,7 +21,7 @@ const List<String> currencyCardList = ['USD', 'CAD', 'AUD'];
 String? APIKey = dotenv.env['APIKey'];
 
 class CurrencyData {
-  getCurrencyData(String selectedCurrency) async {
+  Future getCurrencyData(String selectedCurrency) async {
     Map<String, String> currencyValues = Map();
     String url;
     for (String currency in currencyCardList) {
@@ -30,7 +30,7 @@ class CurrencyData {
       http.Response response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
         var decodeData = jsonDecode(response.body);
-        double amt = decodeData['amount'];
+        int amt = decodeData['amount'];
         currencyValues[currency] = amt.toStringAsFixed(2);
       } else {
         print(response.statusCode);
