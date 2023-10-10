@@ -6,7 +6,6 @@ A flutter app that uses API's to get the latest currency exchange rates based on
 
 ![MainScreen](https://github.com/Ana-Tran/currency_exchange/assets/77013315/e2a5b7af-b696-4717-8b92-17fddbd3be3b)
 <br>** UI design taken from https://dribbble.com/shots/16196109-Currency-Exchange-App-UI by RH
-
 <br> Used API created by Amdorn https://www.amdoren.com/currency-api/ 
 
 
